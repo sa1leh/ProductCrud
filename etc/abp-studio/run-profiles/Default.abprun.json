@@ -1,0 +1,17 @@
+﻿{
+  "applications": {
+    "ProductCURD.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44303",
+      "path": "../../../src/ProductCURD.HttpApi.Host/ProductCURD.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$"  
+    },
+    "ProductCURD.Angular": {
+      "type": "cli",
+      "workingDirectory": "../../../angular",
+      "startCommand": "./start.ps1",
+      "launchUrl": "http://localhost:4200",
+      "kubernetesService": ".*-angular$"        
+    }
+  }
+}

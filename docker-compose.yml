@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "YourPassword123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
+  productmang.dbmigrator:
+    image: your-image/dbmigrator:latest
+    container_name: productmang.dbmigrator
+    depends_on:
+      - sqlserver
+    networks:
+      - app-network
+
+  productmang.web:
+    image: your-image/web:latest
+    container_name: productmang.web
+    depends_on:
+      - sqlserver
+    ports:
+      - "5000:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

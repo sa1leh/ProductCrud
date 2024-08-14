@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ProductCURD</RootNamespace>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+
+	</PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ProductCURD.Application\ProductCURD.Application.csproj" />
+    <ProjectReference Include="..\..\src\ProductCURD.HttpApi.Host\ProductCURD.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\ProductCURD.Domain.Tests\ProductCURD.Domain.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+  </ItemGroup>
+
+</Project>
